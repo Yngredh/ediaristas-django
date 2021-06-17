@@ -12,7 +12,7 @@ def cadastrar_diarista(request):
             return redirect('listar_diaristas')
     else:
         form_diarista = diarista_form.DiaristaForm()
-    return render(request, 'form_diarista.html', {'form_diarista': form_diarista})
+    return render(request, 'form_diarista.html', {'form_diarista':form_diarista})
 
 def listar_diaristas(request):
     diaristas = Diarista.objects.all()
@@ -22,7 +22,7 @@ def editar_diarista(request, diarista_id):
     diarista = Diarista.objects.get(id=diarista_id)
     if request.methos == "POST":
         # Uma vez que a diarista já está cadastrada, o metodo da requisição será 'post' e não 'get'
-        form_diarista = diarista_form.DiaristaForm(request.POST or None, request.FILED, instance=diarista)
+        form_diarista = diarista_form.DiaristaForm(request.POST or None, request.FILES, instance=diarista)
         if form_diarista.is_valid():
             form_diarista.save()
             return redirect('listar_diaristas')

@@ -1,4 +1,4 @@
-{% extends 'base.html %}
+{% extends 'base.html' %}
 {% load easy_mask %}
 {% block conteudo %}
   <table class="table">
@@ -26,5 +26,5 @@
   {% endfor %}
   </tbody>
 </table>
-<a href="{% url 'cadastrar_diarista' %}" class="btn-primary">Cadastrar</a>
+<a href="{% url 'cadastrar_diarista' %}" class="btn btn-primary">Cadastrar</a>
 {% endblock conteudo %}
